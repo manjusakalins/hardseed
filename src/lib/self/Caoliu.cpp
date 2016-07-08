@@ -68,6 +68,8 @@ getTopicsListWebpagePartUrl (Caoliu::AvClass av_class)
 static const string
 getTopicsListWebpageUrl (const string& portal_url, Caoliu::AvClass av_class) 
 {
+	cout << "  the proxy :" << portal_url << getTopicsListWebpagePartUrl(av_class);
+
     return(portal_url + getTopicsListWebpagePartUrl(av_class));
 }
 
@@ -113,7 +115,7 @@ parseValidTopicsUrls ( Caoliu::AvClass av_class,
                 b_stop = true;
                 break;
             }
-            
+
             const string& topic_title = e.first;
             const string& topic_url = e.second;
             static const string o_flag(RichTxt::bold_on + "O" + RichTxt::bold_off);
@@ -142,7 +144,7 @@ parseValidTopicsUrls ( Caoliu::AvClass av_class,
                 }
                 continue;
             }
-            
+			//cout << int(__LINE__) << " GOT \n";
             valid_topics_urls_list.push_back(topic_url);
             
             if (b_progress) {
